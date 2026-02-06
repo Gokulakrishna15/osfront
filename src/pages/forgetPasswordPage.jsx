@@ -10,7 +10,7 @@ const ForgetPasswordPage = () => {
 
   const handleClick = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forget-password", {
+      const res = await axios.post("https://osback.onrender.com/api/auth/forget-password", {
         email: input,
       });
       console.log(res.data);

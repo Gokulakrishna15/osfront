@@ -2,6 +2,9 @@ import axios from "axios";
 import { useReducer, useState } from "react";
 import { useNavigate } from "react-router";
 
+// FIXED: Define the URL here so we don't use localhost
+const API_URL = "https://osback.onrender.com";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "firstName":
@@ -64,8 +67,9 @@ function Login() {
     if (!validate()) return;
 
     try {
+      // FIXED: Switched from localhost to API_URL
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_URL}/api/auth/login`, 
         {
           email: inputValues.email,
           password: inputValues.password,
@@ -96,8 +100,9 @@ function Login() {
     if (!validate()) return;
 
     try {
+      // FIXED: Switched from localhost to API_URL
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           firstName: inputValues.firstName,
           lastName: inputValues.lastName,

@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children, allowedRoles }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/me", { withCredentials: true });
+        const res = await axios.get("https://osback.onrender.com/api/auth/me", { withCredentials: true });
         const user = res.data;
 
         if (!allowedRoles || allowedRoles.includes(user.role)) {

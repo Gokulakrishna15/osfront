@@ -8,7 +8,7 @@ const AvailableExams = () => {
   useEffect(() => {
     const fetchExams = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/exams", { withCredentials: true });
+        const res = await axios.get("https://osback.onrender.com/api/exams", { withCredentials: true });
         setExams(res.data);
       } catch (err) {
         console.error("Error fetching exams:", err);
@@ -20,7 +20,7 @@ const AvailableExams = () => {
   const handleEnroll = async (examId) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/exams/enroll",
+        "https://osback.onrender.com/api/exams/enroll",
         { examId },
         { withCredentials: true }
       );
